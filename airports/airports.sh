@@ -13,7 +13,7 @@ docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION yazeed505/$DOCKER_IMAGE_NAME
 docker push yazeed505/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
 
 # Step 2: Change tag in Helm chart
-sed -i '' "s/^ *tag: .*/  tag: $DOCKER_IMAGE_VERSION/" ${PWD}/helm/values.yaml
+sed -i '' "s/^ *tag: .*/  tag: $DOCKER_IMAGE_VERSION/" ${PWD}/airports/helm/values.yaml
 
 # Step 3: Commit and push changes to GitHub
 git add --all
