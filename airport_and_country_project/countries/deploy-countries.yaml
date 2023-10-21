@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: countries
+  labels:
+    role: app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: countries-deployment
+ namespace: countries
+ labels:
+   role: app
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     role: app
+ template:
+   metadata:
+     labels:
+       role: app
+   spec:
+     containers:
+     - name: app
+       image: yazeed505/countries-assembly:1.0.1
+       ports:
+       - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: countries-svc
+ namespace: countries
+spec:
+ selector:
+   role: app
+ ports:
+   - protocol: TCP
+     port: 8000
+     targetPort: 8080
+     nodePort: 32001
+ type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: countries-ingress
+  namespace: countries
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /countries
+            pathType: Prefix
+            backend:
+              service:
+                name: countries-svc
+                port:
+                  number: 8000

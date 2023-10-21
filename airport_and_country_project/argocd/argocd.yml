@@ -1,0 +1,16 @@
+---
+- name: Install ArgoCD on Minikube
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create ArgoCD namespace
+      command: kubectl create namespace argocd
+
+    - name: Add ArgoCD Helm repository
+      command: helm repo add argo-cd https://argoproj.github.io/argo-helm
+
+    - name: Update Helm repositories
+      command: helm repo update
+
+    - name: Install ArgoCD using Helm
+      command: helm install argocd argo-cd/argo-cd -n argocd
