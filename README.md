@@ -47,7 +47,8 @@ Initially, my goal was to provision three virtual machines on my MacBook Pro M2 
 - [Prerequisites](#prerequisites)
 - [Run minikube](#run-minikube)
 - [Run bash script](#run-bash-script)
-- [Deploy using services ](#kubectl-apply)
+- [Deploy using services](#kubectl-apply)
+- [Deployment with ansible](#deployment-with-ansible)
 - [Helm Charts with ArgoCD](#helm-charts-with-argocd)
 
 ## Prerequisites
