@@ -4,9 +4,6 @@
 DOCKER_IMAGE_NAME="countries-assembly"
 DOCKER_IMAGE_VERSION="1.0.1"
 
-# Set your Helm chart directory
-HELM_CHART_DIR="./helm"
-
 # Step 1: Docker build, tag, and push
 docker build -t $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION .
 docker tag $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION yazeed505/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION
