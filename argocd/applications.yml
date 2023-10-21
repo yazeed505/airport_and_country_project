@@ -34,6 +34,8 @@
             server: 'https://kubernetes.default.svc'
             namespace: countries
           syncPolicy:
+            automated:
+              selfHeal: true
             syncOptions:
               - CreateNamespace=true
     - name: airports application 
@@ -54,5 +56,7 @@
             server: 'https://kubernetes.default.svc'
             namespace: airports
           syncPolicy:
+            automated:
+              selfHeal: true
             syncOptions:
               - CreateNamespace=true
