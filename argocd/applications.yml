@@ -23,21 +23,25 @@
           apiVersion: argoproj.io/v1alpha1
           kind: Application
           metadata:
-            name: 'countries'
+            name: countries
             namespace: argocd
-          project: default
-          source:
-            repoURL: 'https://github.com/yazeed505/airport_and_country_project'
-            path: countries/helm
-            targetRevision: HEAD
-          destination:
-            server: 'https://kubernetes.default.svc'
-            namespace: countries
-          syncPolicy:
-            automated:
-              selfHeal: true
-            syncOptions:
-              - CreateNamespace=true
+          spec:
+            destination:
+              name: ''
+              namespace: countries
+              server: 'https://kubernetes.default.svc'
+            source:
+              path: countries/helm
+              repoURL: 'https://github.com/yazeed505/airport_and_country_project.git'
+              targetRevision: HEAD
+            sources: []
+            project: default
+            syncPolicy:
+              automated:
+                prune: false
+                selfHeal: false
+              syncOptions:
+                - CreateNamespace=true
     - name: airports application 
       kubernetes.core.k8s:
         state: present
@@ -45,18 +49,22 @@
           apiVersion: argoproj.io/v1alpha1
           kind: Application
           metadata:
-            name: 'airports'
+            name: airports
             namespace: argocd
-          project: default
-          source:
-            repoURL: 'https://github.com/yazeed505/airport_and_country_project'
-            path: airports/helm
-            targetRevision: HEAD
-          destination:
-            server: 'https://kubernetes.default.svc'
-            namespace: airports
-          syncPolicy:
-            automated:
-              selfHeal: true
-            syncOptions:
-              - CreateNamespace=true
+          spec:
+            destination:
+              name: ''
+              namespace: airports
+              server: 'https://kubernetes.default.svc'
+            source:
+              path: airports/helm
+              repoURL: 'https://github.com/yazeed505/airport_and_country_project.git'
+              targetRevision: HEAD
+            sources: []
+            project: default
+            syncPolicy:
+              automated:
+                prune: false
+                selfHeal: false
+              syncOptions:
+                - CreateNamespace=true
