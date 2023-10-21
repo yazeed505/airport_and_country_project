@@ -163,4 +163,8 @@ Ensure you have the following dependencies installed:
     ```
 7. Now you can see the application are appearing and if they are not synced, you can sync them.
 
+### Note:
+
+If you face an error with ansible, You can create the application manually and then it should work. We did not yet installed Argocd operator
+
 ### END OF PROJECT AND THANKS

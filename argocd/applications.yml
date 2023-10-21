@@ -30,15 +30,10 @@
             repoURL: 'https://github.com/yazeed505/airport_and_country_project'
             path: countries/helm
             targetRevision: HEAD
-            helm:
-              valueFiles:
-                - values.yaml
           destination:
             server: 'https://kubernetes.default.svc'
             namespace: countries
           syncPolicy:
-            automated:
-              selfHeal: true
             syncOptions:
               - CreateNamespace=true
     - name: airports application 
@@ -55,14 +50,9 @@
             repoURL: 'https://github.com/yazeed505/airport_and_country_project'
             path: airports/helm
             targetRevision: HEAD
-            helm:
-              valueFiles:
-                - values.yaml
           destination:
             server: 'https://kubernetes.default.svc'
             namespace: airports
           syncPolicy:
-            automated:
-              selfHeal: true
             syncOptions:
               - CreateNamespace=true
