@@ -2,7 +2,7 @@
 
 # Set your Docker image name and version
 DOCKER_IMAGE_NAME="airports-assembly"
-DOCKER_IMAGE_VERSION="1.0.1"
+DOCKER_IMAGE_VERSION="1.1.0"
 
 # Set your Helm chart directory
 HELM_CHART_DIR="./helm"
